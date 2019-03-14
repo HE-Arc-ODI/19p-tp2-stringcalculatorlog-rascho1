@@ -1,5 +1,7 @@
 package ch.hearc.ig.odi.stringcalculatortdd;
 
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
-
+   /* private static final Logger logger = LogManager.getLogger(StringCalculator.class());*/
     public StringCalculator() {
     }
     
