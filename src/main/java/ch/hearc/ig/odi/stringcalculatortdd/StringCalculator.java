@@ -1,18 +1,20 @@
 package ch.hearc.ig.odi.stringcalculatortdd;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class StringCalculator {
    /* private static final Logger logger = LogManager.getLogger(StringCalculator.class());*/
     public StringCalculator() {
     }
-    
+    private static final Logger logger = LogManager.getLogger(StringCalculator.class);
+
+
     public int add(final String numbers) {
         //default delimiter
         String delimiter = ",|\n";
