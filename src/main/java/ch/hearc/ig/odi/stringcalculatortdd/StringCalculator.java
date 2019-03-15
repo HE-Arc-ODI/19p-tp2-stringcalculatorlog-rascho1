@@ -31,33 +31,33 @@ public class StringCalculator {
     }
 
     private int add(final String numbersWithoutDelimiter, final String delimiter) {
-      int returnValue = 0;
-      List<Integer> negativeNumbers = new ArrayList();
+        int returnValue = 0;
+        List<Integer> negativeNumbers = new ArrayList();
 
-      //a string tab containing the numbers without the delimiter(s) is created
-      String[] numbersArray = numbersWithoutDelimiter.split(delimiter);
+        //a string tab containing the numbers without the delimiter(s) is created
+        String[] numbersArray = numbersWithoutDelimiter.split(delimiter);
 
-      for (String number : numbersArray) {
-        //test if the numbers array is not empty
-        if (!(number.trim().length() == 0)) {
-          Integer numberInt = Integer.parseInt(number);
-          if (numberInt < 0) {
-            logger.fatal("nombre négatif");
-            negativeNumbers.add(numberInt);
-          } else if (numberInt <= 1000) {
-            logger.warn("plus grand que 1000");
-            returnValue += numberInt;
-          }
+        for (String number : numbersArray) {
+            //test if the numbers array is not empty
+            if (!(number.trim().length() == 0)) {
+                Integer numberInt = Integer.parseInt(number);
+                if (numberInt < 0)
+                    negativeNumbers.add(numberInt);
+                else if (numberInt <= 1000)
+
+                    returnValue += numberInt;
+                    logger.warn("plus grand que 1000");
+            }
         }
 
         if (negativeNumbers.size() > 0) {
-          throw new RuntimeException("Negative not allowed: " + negativeNumbers.toString());
+          logger.fatal("Attention nombre négatif");
+            throw new RuntimeException("Negative not allowed: " + negativeNumbers.toString());
+
         }
-      }
 
         return returnValue;
-      }
-
+    }
 
     private String extractDelimiter(String numbers) {
         String[] delimiters;
