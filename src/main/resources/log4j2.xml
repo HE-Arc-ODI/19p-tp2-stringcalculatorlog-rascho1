@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
   <Appenders>
-    <File name="warning" filename="log/warning.log">
+    <Console name="warne" target="SYSTEM_OUT">
+      <LevelRangeFilter minLevel="WARN" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}" disableAnsi="false"/>
+    </Console>
+    <Console name="fatal" target="SYSTEM_OUT">
+      <LevelRangeFilter minLevel="FATAL" maxLevel="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}" disableAnsi="false"/>
+    </Console>
+    <File name="info" filename="logi/info">
+      <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-    </File>
-    <File name="fatal" filename="logs/fatal.log">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-    </File>
-    <File name="console" filename="logi/info.log">
-      <PatternLayout
-        pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
     </File>
   </Appenders>
   <Loggers>
     <Root level="trace">
-      <AppenderRef ref="console"/>
-      <AppenderRef ref="warning"/>
+      <AppenderRef ref="warne"/>
       <AppenderRef ref="fatal"/>
+
     </Root>
   </Loggers>
 </Configuration>
