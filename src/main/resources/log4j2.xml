@@ -3,11 +3,11 @@
   <Appenders>
     <Console name="warne" target="SYSTEM_OUT">
       <LevelRangeFilter minLevel="WARN" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
-      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}" disableAnsi="false"/>
+      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}{FATAL=red, WARN=yellow, INFO=black}" disableAnsi="false"/>
     </Console>
     <Console name="fatal" target="SYSTEM_OUT">
       <LevelRangeFilter minLevel="FATAL" maxLevel="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
-      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}" disableAnsi="false"/>
+      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}{FATAL=red, WARN=yellow, INFO=black}" disableAnsi="false"/>
     </Console>
     <File name="info" filename="logi/info">
       <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
