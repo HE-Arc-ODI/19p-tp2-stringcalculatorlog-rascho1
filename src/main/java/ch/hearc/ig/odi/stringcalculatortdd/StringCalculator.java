@@ -4,17 +4,17 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class StringCalculator {
 
-  /* private static final Logger logger = LogManager.getLogger(StringCalculator.class());*/
+  /* private static final Logger LOGGER = LogManager.getLogger(StringCalculator.class());*/
   public StringCalculator() {
   }
 
-  private static final Logger logger = LogManager.getLogger(StringCalculator.class);
+  private static final Logger LOGGER = LogManager.getLogger(StringCalculator.class);
 
 
   public int add(final String numbers) {
@@ -25,7 +25,7 @@ public class StringCalculator {
     //if it begins by '//' then it's a personalize delimiter(s)
     if (numbers.startsWith("//")) {
       delimiter = this.extractDelimiter(numbers);
-      logger.info("délimiteur sprécial : '"+ delimiter +"'");
+      LOGGER.info("délimiteur sprécial : '"+ delimiter +"'");
       //"cut" the beginning of the string so that the personalize delimiter is removed
       numbersUpdated = numbers.substring(numbers.indexOf("\n") + 1);
     }
@@ -48,13 +48,13 @@ public class StringCalculator {
         } else if (numberInt <= 1000) {
           returnValue += numberInt;
         } else {
-          logger.warn("Nombre plus grand  que 1000");
+          LOGGER.warn("Nombre plus grand  que 1000");
         }
       }
     }
 
     if (negativeNumbers.size() > 0) {
-      logger.fatal("Attention nombre négatif :" + negativeNumbers.toString());
+      LOGGER.fatal("Attention nombre négatif :" + negativeNumbers.toString());
       throw new RuntimeException("Negative not allowed: " + negativeNumbers.toString());
 
     }

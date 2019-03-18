@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
   <Appenders>
-    <Console name="warn" target="SYSTEM_OUT">
+    <File name="warn" fileName="log/warning.log">
       <LevelRangeFilter minLevel="WARN" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
-      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}{FATAL=red, WARN=yellow, INFO=black}" disableAnsi="false"/>
-    </Console>
-    <Console name="fatal" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %c - %msg%n"/>
+    </File>
+    <File name="fatal" fileName="log/fatal.log">
       <LevelRangeFilter minLevel="FATAL" maxLevel="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
-      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}{FATAL=red, WARN=yellow, INFO=black}" disableAnsi="false"/>
-    </Console>
+      <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %c - %msg%n"/>
+    </File>
     <Console name="info" target="SYSTEM_OUT">
       <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}{FATAL=red, WARN=yellow, INFO=black}" disableAnsi="false"/>
@@ -19,7 +19,6 @@
       <AppenderRef ref="warn"/>
       <AppenderRef ref="fatal"/>
       <AppenderRef ref="info"/>
-
     </Root>
   </Loggers>
 </Configuration>
