@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+  <Appenders>
+    <File name="warn" fileName="log/warning.log">
+      <LevelRangeFilter minLevel="WARN" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %c - %msg%n"/>
+    </File>
+    <File name="fatal" fileName="log/fatal.log">
+      <LevelRangeFilter minLevel="FATAL" maxLevel="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %c - %msg%n"/>
+    </File>
+    <Console name="info" target="SYSTEM_OUT">
+      <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%highlight{%d{HH:mm:ss} [%t] %-5level %c - %msg%n}{FATAL=red, WARN=yellow, INFO=black}" disableAnsi="false"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="warn"/>
+      <AppenderRef ref="fatal"/>
+      <AppenderRef ref="info"/>
+    </Root>
+  </Loggers>
+</Configuration>
